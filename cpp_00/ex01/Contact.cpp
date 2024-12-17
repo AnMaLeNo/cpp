@@ -14,13 +14,13 @@
 
 Contact::Contact(void)
 {
-	std::cout << "Constructeur Contact" << std::endl;
+	//std::cout << "Constructeur Contact" << std::endl;
 	return ;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "Destructeur Contact" << std::endl;
+	//std::cout << "Destructeur Contact" << std::endl;
 	return ;
 }
 
@@ -28,28 +28,37 @@ bool is_alpha(std::string str)
 {
 	for (unsigned long int i = 0; i < str.length(); i++)
 	{
-		if (!std::isalpha(str[i]))
+		if (!std::isalpha(str[i]) && !isblank(str[i]))
+		{
+			std::cout << "Only alphabetic characters are allowed." << std::endl;
 			return (false);
+		}
 	}
 	return (true);
 }
 
-bool is_digit(std::string str)
+static bool is_digit(std::string str)
 {
 	for (unsigned long int i = 0; i < str.length(); i++)
 	{
 		if (!std::isdigit(str[i]))
+		{
+			std::cout << "Only digit characters are allowed." << std::endl;
 			return (false);
+		}
 	}
 	return (true);
 }
 
-bool is_alnum(std::string str)
+bool is_graph(std::string str)
 {
 	for (unsigned long int i = 0; i < str.length(); i++)
 	{
-		if (!std::isalnum(str[i]))
+		if (!std::isgraph(str[i]))
+		{
+			std::cout << "Only characters with graphical representation are allowed." << std::endl;
 			return (false);
+		}
 	}
 	return (true);
 }
@@ -70,40 +79,50 @@ void Contact::set_first_name(void)
 {
 	std::cout << "first_name :" << std::endl;
 	do {
-		std::cin >> first_name;
-	} while (check_eof() || !is_alpha(first_name));
+		std::getline(std::cin, first_name);
+		if (first_name.length() == 0)
+			std::cout << "First name cannot be empty." << std::endl;
+	} while (check_eof() || !is_alpha(first_name) || first_name.length() == 0);
 }
 
 void Contact::set_last_name(void)
 {
 	std::cout << "last_name :" << std::endl;
 	do {
-		std::cin >> last_name;
-	} while (check_eof() || !is_alpha(last_name));
+		std::getline(std::cin, last_name);
+		if (last_name.length() == 0)
+			std::cout << "Last name cannot be empty." << std::endl;
+	} while (check_eof() || !is_alpha(last_name) || last_name.length() == 0);
 }
 
 void Contact::set_nickname(void)
 {
 	std::cout << "nickname :" << std::endl;
 	do {
-		std::cin >> nickname;
-	} while (check_eof() || !is_alpha(nickname));
+		std::getline(std::cin, nickname);
+		if (nickname.length() == 0)
+			std::cout << "Nickname cannot be empty." << std::endl;
+	} while (check_eof() || !is_alpha(nickname) || nickname.length() == 0);
 }
 
 void Contact::set_phone_number(void)
 {
 	std::cout << "phone_number :" << std::endl;
 	do {
-		std::cin >> phone_number;
-	} while (check_eof() || !is_digit(phone_number));
+		std::getline(std::cin, phone_number);
+		if (phone_number.length() == 0)
+			std::cout << "Phone_number cannot be empty." << std::endl;
+	} while (check_eof() || !is_digit(phone_number) || phone_number.length() == 0);
 }
 
 void Contact::set_darkest_secret(void)
 {
 	std::cout << "darkest_secret :" << std::endl;
 	do {
-		std::cin >> darkest_secret;
-	} while (check_eof() || !is_alnum(darkest_secret));
+		std::getline(std::cin, darkest_secret);
+		if (darkest_secret.length() == 0)
+			std::cout << "Darkest secret cannot be empty." << std::endl;
+	} while (check_eof() || !is_graph(darkest_secret) || darkest_secret.length() == 0);
 }
 
 std::string Contact::get_first_name(void)

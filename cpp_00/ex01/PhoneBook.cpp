@@ -14,14 +14,14 @@
 
 PhoneBook::PhoneBook(void)
 {
-	std::cout << "Constructeur PhoneBook" << std::endl;
+	//std::cout << "Constructeur PhoneBook" << std::endl;
 	new_idx = 0;
 	return ;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "Destructeur PhoneBook" << std::endl;
+	//std::cout << "Destructeur PhoneBook" << std::endl;
 	return ;
 }
 
@@ -91,6 +91,7 @@ void PhoneBook::print_conctact(int i)
 	if (contacts[i].get_last_name().length() == 0)
 	{
 		std::cout << "Empty" << std::endl;
+		std::cout << "\n-------------------------------\n" << std::endl;
 		return ;
 	}
 	std::cout << "first_name: " << contacts[i].get_first_name() << std::endl;
@@ -98,6 +99,20 @@ void PhoneBook::print_conctact(int i)
 	std::cout << "nickname: " << contacts[i].get_nickname() << std::endl;
 	std::cout << "phone_number: " << contacts[i].get_phone_number() << std::endl;
 	std::cout << "darkest_secret: " << contacts[i].get_darkest_secret() << std::endl;
+	std::cout << "\n-------------------------------\n" << std::endl;
+}
+
+static bool is_digit(std::string str)
+{
+	for (unsigned long int i = 0; i < str.length(); i++)
+	{
+		if (!std::isdigit(str[i]))
+		{
+			std::cout << "Only digit characters are allowed." << std::endl;
+			return (false);
+		}
+	}
+	return (true);
 }
 
 void PhoneBook::search(void)
@@ -112,7 +127,11 @@ void PhoneBook::search(void)
 					contacts[i].get_last_name(),
 					contacts[i].get_nickname());
 	do {
-		std::cin >> index;
-	} while (check_eof());
+		std::getline(std::cin, index);
+		if ((std::atoi(index.c_str()) < 0) || (std::atoi(index.c_str()) > 7))
+			std::cout << "Bad index" << std::endl;
+		if (index.length() == 0)
+			std::cout << "index cannot be empty." << std::endl;
+	} while (check_eof() || (std::atoi(index.c_str()) < 0) || (std::atoi(index.c_str()) > 7) || index.length() == 0 || !is_digit(index));
 	print_conctact(std::atoi(index.c_str()));
 }

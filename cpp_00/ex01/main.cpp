@@ -30,7 +30,7 @@ int	main(void)
 	std::string	input;
 
 	do {
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (check_eof())
 			continue ;
 		if (input == "ADD")

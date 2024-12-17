@@ -11,24 +11,21 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
+#include <cctype>
 
 int main(int argc, char *argv[])
 {
-	int i;
-	int j;
-	i = 1;
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	while (i < argc)
+    if (argc == 1) {
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	}
+	for (int i = 1; i < argc; i++) 
 	{
-		j = 0;
-		while (argv[i][j])
-		{
-			argv[i][j] = std::toupper(argv[i][j]);
-			j++;
-		}
-		std::cout << argv[i++];
+		std::string word(argv[i]);
+		for (size_t j = 0; j < word.length(); j++)
+			word[j] = std::toupper(word[j]);
+		std::cout << word;
 	}
 	std::cout << std::endl;
-	return 0;
+    return (0);
 }
