@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 17:59:09 by amonot            #+#    #+#             */
-/*   Updated: 2024/12/12 21:22:15 by amonot           ###   ########.fr       */
+/*   Updated: 2025/01/14 17:13:10 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,12 @@ void adj_column(std::string &str)
 		str.erase(10, str.length());
 		str.replace(9, 1, ".");
 	}
-	else
-		str.insert(0, space, 0, 10 - str.length());
+//	else
+//		str.insert(0, space, 0, 10 - str.length());
 }
+
+#include <iostream>     // std::cout, std::endl
+#include <iomanip> 
 
 void printf_line(std::string c1, std::string c2, std::string c3, std::string c4)
 {
@@ -58,7 +61,11 @@ void printf_line(std::string c1, std::string c2, std::string c3, std::string c4)
 	adj_column(c2);
 	adj_column(c3);
 	adj_column(c4);
-	std::cout << "|" << c1 << "|" << c2 << "|" << c3 << "|" << c4 << "|" << std::endl;
+	std::cout << "|" << std::setfill (' ') << std::setw (10) << c1
+		<< "|" << std::setfill (' ') << std::setw (10) << c2
+		<< "|" << std::setfill (' ') << std::setw (10) << c3
+		<< "|" << std::setfill (' ') << std::setw (10) << c4
+		<< "|" << std::endl;
 }
 
 std::string int_str(int nbr)

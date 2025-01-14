@@ -30,6 +30,7 @@ int	main(void)
 	std::string	input;
 
 	do {
+		std::cout << "ADD SEARCH or EXIT" << std::endl;
 		std::getline(std::cin, input);
 		if (check_eof())
 			continue ;

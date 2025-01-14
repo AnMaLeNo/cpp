@@ -122,7 +122,7 @@ void Contact::set_darkest_secret(void)
 		std::getline(std::cin, darkest_secret);
 		if (darkest_secret.length() == 0)
 			std::cout << "Darkest secret cannot be empty." << std::endl;
-	} while (check_eof() || !is_graph(darkest_secret) || darkest_secret.length() == 0);
+	} while (check_eof() || darkest_secret.length() == 0);
 }
 
 std::string Contact::get_first_name(void)
