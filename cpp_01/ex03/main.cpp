@@ -5,43 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 14:05:48 by amonot            #+#    #+#             */
-/*   Updated: 2025/01/16 16:27:09 by amonot           ###   ########.fr       */
+/*   Created: 2025/01/17 12:12:05 by amonot            #+#    #+#             */
+/*   Updated: 2025/01/23 16:14:41 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-Zombie* zombieHorde(int n, std::string name)
+/* int main(void)
 {
-	Zombie *zombie;
+	Weapon weapon;
 
-	if (n <= 0)
-		return (NULL);
-	zombie = new Zombie[n];
-	for (int i = 0; i < n; i++)
-		zombie[i].set_name(name);
-	return (zombie);
-}
-
-int main(void)
-{
-	Zombie *zombie;
-	
-	zombie = zombieHorde(3, "zzz");
-	for (int i = 0; i < 3; i++)
-		zombie[i].announce();
-	delete []zombie;
-
-	Zombie *zFail;
-
-	zFail = zombieHorde(-12, "fail");
-	if (zFail == NULL)
-		std::cout << "NULL" << std::endl;
-	else
-	{
-		std::cout << "ok" << std::endl;
-		delete []zFail;
-	}
+	weapon.setType("AK-47");
+	std::cout << "weapon type : " << weapon.getType() << std::endl;
 	return (0);
+} */
+
+int main()
+{
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
 }

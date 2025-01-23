@@ -5,43 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 14:05:48 by amonot            #+#    #+#             */
-/*   Updated: 2025/01/16 16:27:09 by amonot           ###   ########.fr       */
+/*   Created: 2025/01/16 17:21:28 by amonot            #+#    #+#             */
+/*   Updated: 2025/01/17 12:10:17 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-
-Zombie* zombieHorde(int n, std::string name)
-{
-	Zombie *zombie;
-
-	if (n <= 0)
-		return (NULL);
-	zombie = new Zombie[n];
-	for (int i = 0; i < n; i++)
-		zombie[i].set_name(name);
-	return (zombie);
-}
+#include <iostream>
 
 int main(void)
 {
-	Zombie *zombie;
-	
-	zombie = zombieHorde(3, "zzz");
-	for (int i = 0; i < 3; i++)
-		zombie[i].announce();
-	delete []zombie;
+	std::string	brain;
+	void		*stringPTR;
+	std::string	&stringREF = brain;
 
-	Zombie *zFail;
-
-	zFail = zombieHorde(-12, "fail");
-	if (zFail == NULL)
-		std::cout << "NULL" << std::endl;
-	else
-	{
-		std::cout << "ok" << std::endl;
-		delete []zFail;
-	}
-	return (0);
+	brain = "HI THIS IS BRAIN";
+	stringPTR = &brain;
+	stringREF = "test";
+	std::cout << "brain : " << brain << std::endl;
+	std::cout << "stringPTR : " << *(std::string *)stringPTR << std::endl;
+	std::cout << "stringREF : " << stringREF << std::endl;
 }
