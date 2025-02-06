@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 13:44:18 by amonot            #+#    #+#             */
-/*   Updated: 2025/01/21 16:10:44 by amonot           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:44:48 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Weapon::~Weapon(void)
 	std::cout << "Destructeur Weapon" << std::endl;
 }
 
-std::string Weapon::getType(void)
+const std::string& Weapon::getType(void)
 {
 	return (type);
 }

@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 14:05:48 by amonot            #+#    #+#             */
-/*   Updated: 2025/01/27 13:46:40 by amonot           ###   ########.fr       */
+/*   Created: 2025/02/05 15:48:55 by amonot            #+#    #+#             */
+/*   Updated: 2025/02/06 19:32:19 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
 
-int main(void)
-{
-	Zombie zombie("Foo");
-	Zombie *new_zombie;
+#include <iostream>
 
-	randomChump("randomChump 1");
-	new_zombie = newZombie("new_z");
-	new_zombie->announce();
-	zombie.announce();
+class Fixed {
+	
+	private:
+		int nbr;
+		const int point;
 
-	randomChump("randomChump 2");
-	randomChump("randomChump 3");
-	delete new_zombie;
-	return (0);
-}
+	public:
+		Fixed(void);
+		Fixed(const Fixed& other);
+		~Fixed(void);
+
+		Fixed& operator=(const Fixed& other);
+
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
+};

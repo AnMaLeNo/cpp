@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:11:41 by amonot            #+#    #+#             */
-/*   Updated: 2025/01/24 17:17:16 by amonot           ###   ########.fr       */
+/*   Updated: 2025/01/27 16:19:42 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,25 +46,25 @@ void Harl::complain(std::string level)
 	if (level.compare("DEBUG") == 0)
 	{	
 		void (Harl::*ptrToMemberFunc)(void) = &Harl::debug;
-		std::cout << "DEBUG" << std::endl;
+		//std::cout << "DEBUG" << std::endl;
 		(obj.*ptrToMemberFunc)();
 	}
 	else if (level.compare("INFO") == 0)
 	{
 		void (Harl::*ptrToMemberFunc)(void) = &Harl::info;
-		std::cout << "INFO" << std::endl;
+		//std::cout << "INFO" << std::endl;
 		(obj.*ptrToMemberFunc)();
 	}
 	else if (level.compare("WARNING") == 0)
 	{
 		void (Harl::*ptrToMemberFunc)(void) = &Harl::warning;
-		std::cout << "WARNING" << std::endl;
+		//std::cout << "WARNING" << std::endl;
 		(obj.*ptrToMemberFunc)();
 	}
 	else if (level.compare("ERROR") == 0)
 	{
 		void (Harl::*ptrToMemberFunc)(void) = &Harl::error;
-		std::cout << "ERROR" << std::endl;
+		//std::cout << "ERROR" << std::endl;
 		(obj.*ptrToMemberFunc)();
 	}
 	else

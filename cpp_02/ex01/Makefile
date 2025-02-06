@@ -1,6 +1,5 @@
 SRCS =	main.cpp \
-		Zombie.cpp \
-		zombieHorde.cpp
+		Fixed.cpp
 
 SRCS_OBJ = $(SRCS:.cpp=.o)
 
@@ -8,7 +7,7 @@ CC = c++ -std=c++98
 
 CFLAGS = -Wall -Wextra -Werror
 
-NAME = Zombie
+NAME = a.out
 
 all : ${NAME}
 

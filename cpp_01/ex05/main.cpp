@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:10:28 by amonot            #+#    #+#             */
-/*   Updated: 2025/01/24 17:13:05 by amonot           ###   ########.fr       */
+/*   Updated: 2025/01/27 16:18:26 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int main(void)
 	harl.complain("WARNING");
 	harl.complain("ERROR");
 	harl.complain("asdf");
+	
 	return (0);
 }

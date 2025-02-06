@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 14:06:33 by amonot            #+#    #+#             */
-/*   Updated: 2025/01/17 13:43:01 by amonot           ###   ########.fr       */
+/*   Updated: 2025/01/27 13:51:00 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ class Zombie
 	private:
 		std::string name;
 };
+
+Zombie* zombieHorde(int n, std::string name);
 
 #endif

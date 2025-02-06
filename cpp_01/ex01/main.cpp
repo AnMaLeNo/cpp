@@ -6,30 +6,25 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 14:05:48 by amonot            #+#    #+#             */
-/*   Updated: 2025/01/16 16:27:09 by amonot           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:28:51 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* zombieHorde(int n, std::string name)
-{
-	Zombie *zombie;
-
-	if (n <= 0)
-		return (NULL);
-	zombie = new Zombie[n];
-	for (int i = 0; i < n; i++)
-		zombie[i].set_name(name);
-	return (zombie);
-}
-
 int main(void)
 {
 	Zombie *zombie;
+	int		nbrZ;
 	
-	zombie = zombieHorde(3, "zzz");
-	for (int i = 0; i < 3; i++)
+	nbrZ = 214;
+	zombie = zombieHorde(nbrZ, "zzz");
+	if (zombie == NULL)
+	{
+		std::cout << "zombieHorde fail" << std::endl;
+		return (1);
+	}
+	for (int i = 0; i < nbrZ; i++)
 		zombie[i].announce();
 	delete []zombie;
 

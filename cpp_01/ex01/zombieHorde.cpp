@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 14:05:48 by amonot            #+#    #+#             */
-/*   Updated: 2025/01/27 13:46:40 by amonot           ###   ########.fr       */
+/*   Created: 2025/01/27 13:50:15 by amonot            #+#    #+#             */
+/*   Updated: 2025/01/27 16:45:00 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int main(void)
+Zombie* zombieHorde(int n, std::string name)
 {
-	Zombie zombie("Foo");
-	Zombie *new_zombie;
+	Zombie *zombie;
 
-	randomChump("randomChump 1");
-	new_zombie = newZombie("new_z");
-	new_zombie->announce();
-	zombie.announce();
-
-	randomChump("randomChump 2");
-	randomChump("randomChump 3");
-	delete new_zombie;
-	return (0);
+	if (n <= 0)
+		return (NULL);
+	try
+	{
+		zombie = new Zombie[n];
+	}
+	catch (std::bad_alloc)
+	{
+		std::cerr << "bad_alloc caught in zombieHorde" << std::endl;
+		return (NULL);
+	}
+	for (int i = 0; i < n; i++)
+		zombie[i].set_name(name);
+	return (zombie);
 }

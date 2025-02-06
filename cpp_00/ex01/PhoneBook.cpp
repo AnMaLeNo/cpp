@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 17:59:09 by amonot            #+#    #+#             */
-/*   Updated: 2025/01/14 17:13:10 by amonot           ###   ########.fr       */
+/*   Updated: 2025/01/15 12:42:57 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void PhoneBook::add(void)
 
 void adj_column(std::string &str)
 {
-	std::string space = "          ";
+//	std::string space = "          ";
 	if (str.length() > 10)
 	{
 		str.erase(10, str.length());
@@ -61,10 +61,10 @@ void printf_line(std::string c1, std::string c2, std::string c3, std::string c4)
 	adj_column(c2);
 	adj_column(c3);
 	adj_column(c4);
-	std::cout << "|" << std::setfill (' ') << std::setw (10) << c1
-		<< "|" << std::setfill (' ') << std::setw (10) << c2
-		<< "|" << std::setfill (' ') << std::setw (10) << c3
-		<< "|" << std::setfill (' ') << std::setw (10) << c4
+	std::cout << "|" << std::setw (10) << c1
+		<< "|" << std::setw (10) << c2
+		<< "|" << std::setw (10) << c3
+		<< "|" << std::setw (10) << c4
 		<< "|" << std::endl;
 }
 
@@ -134,6 +134,7 @@ void PhoneBook::search(void)
 					contacts[i].get_last_name(),
 					contacts[i].get_nickname());
 	do {
+		std::cout << "choose an index between 0 and 7" << std::endl;
 		std::getline(std::cin, index);
 		if ((std::atoi(index.c_str()) < 0) || (std::atoi(index.c_str()) > 7))
 			std::cout << "Bad index" << std::endl;

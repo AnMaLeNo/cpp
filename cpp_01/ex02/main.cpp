@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:21:28 by amonot            #+#    #+#             */
-/*   Updated: 2025/01/17 12:10:17 by amonot           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:37:19 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void)
 
 	brain = "HI THIS IS BRAIN";
 	stringPTR = &brain;
-	stringREF = "test";
+	//stringREF = "test";
 	std::cout << "brain : " << brain << std::endl;
 	std::cout << "stringPTR : " << *(std::string *)stringPTR << std::endl;
 	std::cout << "stringREF : " << stringREF << std::endl;
