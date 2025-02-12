@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:48:55 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/06 20:05:04 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/12 16:36:49 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,22 @@
 class Fixed {
 	
 	private:
-		int nbr;
+		int bits;
 		const int point;
 
 	public:
 		Fixed(void);
 		Fixed(const Fixed& other);
+		Fixed(int nbr);
+		Fixed(float nbr);
 		~Fixed(void);
 
-		Fixed& operator=(const Fixed& other);
-		friend std::ostream& operator<<(std::ostream& os, const Fixed& other);
+		Fixed&	operator=(const Fixed& other);
 
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& other);
