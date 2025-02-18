@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:50:47 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/18 17:08:02 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/18 18:43:12 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ Fixed::~Fixed(void)
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	//std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->bits = other.getRawBits();
 	return (*this);
@@ -91,7 +91,7 @@ bool Fixed::operator!=(const Fixed& other)
 
 // arithmétiques
 
-Fixed Fixed::operator+(const Fixed& other)
+const Fixed Fixed::operator+(const Fixed& other)
 {
 	Fixed r;
 	
@@ -99,7 +99,7 @@ Fixed Fixed::operator+(const Fixed& other)
 	return (r);
 }
 
-Fixed Fixed::operator-(const Fixed& other)
+const Fixed Fixed::operator-(const Fixed& other)
 {
 	Fixed r;
 	
@@ -107,17 +107,14 @@ Fixed Fixed::operator-(const Fixed& other)
 	return (r);
 }
 
-Fixed Fixed::operator*(const Fixed& other)
+const Fixed Fixed::operator*(const Fixed& other)
 {	
 	return (Fixed(this->toFloat() * other.toFloat()));
 }
 
-Fixed Fixed::operator/(const Fixed& other)
+const Fixed Fixed::operator/(const Fixed& other)
 {
-	Fixed r;
-	
-	r.setRawBits(this->bits / other.bits);
-	return (r);
+	return (Fixed(this->toFloat() / other.toFloat()));
 }
 
 // incrémentation
