@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:50:47 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/12 16:39:43 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/18 14:14:09 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Fixed::Fixed(float nbr) : point(8)
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructeur" << std::endl;
+	std::cout << "Destructeur called" << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
