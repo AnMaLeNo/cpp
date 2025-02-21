@@ -7,7 +7,7 @@ CC = c++ -std=c++98
 
 CFLAGS = -Wall -Wextra -Werror
 
-NAME = a.out
+NAME = fixed
 
 all : ${NAME}
 

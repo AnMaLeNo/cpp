@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:48:37 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/18 16:28:52 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/20 14:16:41 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <iostream>
 
 /* int main( void ) {
-	Fixed a(10);
-	Fixed b(10.003f);
+	Fixed a((int)214748364754854);
+	Fixed b(-4.006f);
 	Fixed c;
 	Fixed d;
 
@@ -63,7 +63,7 @@
 	std::cout << "Fixed::in(a, b) : " << Fixed::min(a, b) << std::endl;
 } */
 
-int main( void ) {
+/* int main( void ) {
 	Fixed a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
@@ -75,4 +75,15 @@ int main( void ) {
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 	return 0;
+} */
+
+int main( void ) {
+	Fixed a(0.006f);
+	Fixed b(-0.006f);
+	Fixed c;
+	Fixed d;
+
+	std::cout << "a : " << a << std::endl;
+	std::cout << "b : " << b << std::endl;
+
 }

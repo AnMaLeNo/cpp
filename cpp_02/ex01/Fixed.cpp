@@ -6,11 +6,12 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:50:47 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/18 14:14:09 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/20 14:30:23 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 
 Fixed::Fixed(void) : point(8)
 {
@@ -35,7 +36,7 @@ Fixed::Fixed(float nbr) : point(8)
 {
 	std::cout << "Float constructor called" << std::endl;
 	bits = (int)nbr << 8;
-	bits += (nbr - (bits >> 8)) * 256 + 0.5; //?????
+	bits += roundf((nbr - (bits >> 8)) * 256);
 }
 
 Fixed::~Fixed(void)
