@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 01:05:55 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/21 17:45:28 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/21 18:25:28 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class ClapTrap {
 
-	private:
+	protected:
 		std::string _name;
 		int _hit;
 		int _energy;

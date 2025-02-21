@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 01:05:36 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/21 03:20:21 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/21 14:15:49 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ int main(void)
 	kevin.attack("steev");
 	kevin.attack("steev");
 	kevin.attack("steev");
-
 	kevin.attack("steev");
-
+	kevin.beRepaired(1);
+	kevin.takeDamage(1);
+	kevin.beRepaired(1);
 
 	return (0);
 }

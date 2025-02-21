@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 01:05:12 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/21 14:43:01 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/21 17:48:32 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,23 @@
 
 ClapTrap::ClapTrap(void) : _name("CL4P-TP"), _hit(10), _energy(10), _damage(0)
 {
-	std::cout << "\033[32m Default constructor called \033[0m" <<  std::endl;
+	std::cout << "\033[32m ClapTrap Default constructor called \033[0m" <<  std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hit(10), _energy(10), _damage(0) 
 {
-	std::cout << "\033[32m String constructor called \033[0m" <<  std::endl;
+	std::cout << "\033[32m ClapTrap String constructor called \033[0m" <<  std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-	std::cout << "\033[32m Copie constructor called \033[0m" <<  std::endl;
+	std::cout << "\033[32m ClapTrap Copie constructor called \033[0m" <<  std::endl;
 	*this = other;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "\033[31m destructor called \033[0m" <<  std::endl;
+	std::cout << "\033[31m ClapTrap destructor called \033[0m" <<  std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)

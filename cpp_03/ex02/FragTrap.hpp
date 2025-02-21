@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/21 01:05:55 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/21 17:45:28 by amonot           ###   ########.fr       */
+/*   Created: 2025/02/21 18:49:02 by amonot            #+#    #+#             */
+/*   Updated: 2025/02/21 19:01:59 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include "ClapTrap.hpp"
 #include <string>
 
-class ClapTrap {
-
-	private:
-		std::string _name;
-		int _hit;
-		int _energy;
-		int _damage;
-	
+class FragTrap : public ClapTrap
+{
 	public:
-		ClapTrap(void);
-		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap& other);
-		~ClapTrap(void);
+		FragTrap(void);
+		FragTrap(std::string name);
+		FragTrap(const FragTrap& other);
+		~FragTrap(void);
 
-		ClapTrap& operator=(const ClapTrap& other);
+		FragTrap& operator=(const FragTrap& other);
 
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		void highFivesGuys(void);
 };
