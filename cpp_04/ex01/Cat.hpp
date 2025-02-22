@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 00:37:08 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/22 17:56:52 by amonot           ###   ########.fr       */
+/*   Created: 2025/02/22 00:37:38 by amonot            #+#    #+#             */
+/*   Updated: 2025/02/22 02:54:23 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 #include "Animal.hpp"
 
-class Dog : public Animal {
+class Cat : public Animal {
 
 	public:
-		Dog(void);
-		Dog(const Dog& other);
-		~Dog(void);
+		Cat(void);
+		Cat(const Cat& other);
+		~Cat(void);
 
-		Dog& operator=(const Dog& other);
-
-		void makeSound(void) const;
+		Cat& operator=(const Cat& other);
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 00:37:38 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/22 02:54:23 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/22 17:53:33 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@ class Cat : public Animal {
 		~Cat(void);
 
 		Cat& operator=(const Cat& other);
+
+		void makeSound(void) const;
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 00:37:29 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/22 19:11:59 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/22 02:58:20 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Cat::Cat(void)
 {
 	std::cout << "\e[0;32m Default Constructor Cat \e[0m" << std::endl;
 	_type = "Cat";
+	_sound = "Meow Meow Meow";
 }
 
 Cat::Cat(const Cat& other) : Animal(other)
@@ -37,9 +38,4 @@ Cat& Cat::operator=(const Cat& other)
 		_type = other._type;
 	}
 	return (*this);
-}
-
-void Cat::makeSound(void) const
-{
-	std::cout << "\e[0;34m Miiiiaaaaaouuuuu \e[0m" << std::endl;
 }
