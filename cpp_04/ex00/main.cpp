@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 00:07:05 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/22 19:15:20 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/23 18:06:55 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ int main()
 
 	std::cout << chat->getType() << "-----" << std::endl;
 	chat->makeSound();
+	delete meta;
+	delete j;
+	delete i;
+	delete chat;
 	return (0);
 }
 

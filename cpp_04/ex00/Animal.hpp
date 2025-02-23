@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 00:07:47 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/22 17:57:37 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/23 17:07:02 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Animal {
 	public:
 		Animal(void);
 		Animal(const Animal& other);
-		~Animal(void);
+		virtual ~Animal(void);
 
 		Animal& operator=(const Animal& other);
 

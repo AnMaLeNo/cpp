@@ -3,19 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 00:37:08 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/22 02:57:56 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/23 18:22:10 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Animal.hpp"
-#include <string>
+#include "Brain.hpp"
 
 class Dog : public Animal {
+
+	private:
+		Brain *_brain;
 
 	public:
 		Dog(void);
@@ -23,4 +26,6 @@ class Dog : public Animal {
 		~Dog(void);
 
 		Dog& operator=(const Dog& other);
+
+		void makeSound(void) const;
 };

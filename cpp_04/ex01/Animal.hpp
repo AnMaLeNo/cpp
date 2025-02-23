@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 00:07:47 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/22 02:29:41 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/23 18:16:10 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@ class Animal {
 	
 	protected:
 		std::string _type;
-		std::string _sound;
 
 	public:
 		Animal(void);
 		Animal(const Animal& other);
-		~Animal(void);
+		virtual ~Animal(void);
 
 		Animal& operator=(const Animal& other);
 
-		void makeSound(void) const;
+		virtual void makeSound(void) const;
 		std::string getType(void) const;
 };

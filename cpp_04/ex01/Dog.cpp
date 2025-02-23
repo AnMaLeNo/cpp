@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 00:36:59 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/22 02:57:53 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/23 18:46:25 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,21 @@ Dog::Dog(void)
 {
 	std::cout << "\e[0;32m Default Constructor Dog \e[0m" << std::endl;
 	_type = "Dog";
-	_sound = "Woof Woof";
+	_brain = new Brain;
 }
 
 Dog::Dog(const Dog& other) : Animal(other)
 {
 	std::cout << "\e[0;32m Copie constructor Dog \e[0m" << std::endl;
 	_type = other._type;
+	_brain = new Brain;
+	*_brain = *(other._brain);
 }
 
 Dog::~Dog(void)
 {
 	std::cout << "\e[0;31m Destructor Dog \e[0m" << std::endl;
+	delete _brain;
 }
 
 Dog& Dog::operator=(const Dog& other)
@@ -40,3 +43,7 @@ Dog& Dog::operator=(const Dog& other)
 	return (*this);
 }
 
+void Dog::makeSound(void) const
+{
+	std::cout << "\e[0;34m Woof Woof \e[0m" << std::endl;
+}

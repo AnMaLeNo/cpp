@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 02:49:42 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/22 19:12:34 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/23 18:07:37 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class WrongAnimal {
 	public:
 		WrongAnimal(void);
 		WrongAnimal(const WrongAnimal& other);
-		~WrongAnimal(void);
+		virtual ~WrongAnimal(void);
 
 		WrongAnimal& operator=(const WrongAnimal& other);
 
