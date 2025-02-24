@@ -6,7 +6,7 @@
 /*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 01:02:10 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/24 05:01:18 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/24 05:31:03 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,15 @@
 /* int main(void)
 {
 	AMateria* ice = new Ice();
-	AMateria* cure = new Cure();
 	ICharacter* me = new Character("me");
 	ICharacter* bob = new Character("bob");
 
+	*(Character *)me = *(Character *)bob;
 
-	me->equip(ice);
-	me->equip(cure);
-	me->equip(cure);
-	me->use(3, *bob);
-	me->use(4, *bob);
-	me->equip(cure);
-	me->equip(cure);// fail;
-	me->use(1, *bob);
-	me->use(0, *bob);
-
-	std::cout << std::endl;
-	me->use(2, *bob);
-	me->unequip(10);
-	me->unequip(2);
-	me->equip(ice);
-	me->use(2, *bob);
-
+	ice->clone();
 	return (0);
-} */
-
+}
+ */
 int main(void)
 {
 	AMateria* ice = new Ice();
@@ -87,6 +71,22 @@ int main(void)
 
 	me->use(0, *bob);// vide
 	me->use(145, *bob);// invalid
+
+	std::cout << "==========test (bob = me)==========" << std::endl;
+	me->unequip(0);
+	me->unequip(1);
+	me->unequip(2);
+	me->unequip(3);
+	me->equip(ice);
+	me->equip(ice);
+	me->equip(ice);
+	me->equip(ice);
+
+	bob->use(1, *bob);
+	me->use(3, *bob);
+	*(Character *)bob = *(Character *)me;
+	bob->use(1, *bob);
+	me->use(3, *bob);
 
 	std::cout << "==========test_leak==========" << std::endl;
 	me->unequip(0);

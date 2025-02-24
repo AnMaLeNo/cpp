@@ -6,7 +6,7 @@
 /*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 02:03:00 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/24 05:01:27 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/24 05:27:50 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,14 @@ Character::~Character(void)
 
 Character& Character::operator=(const Character& other)
 {
+	std::cout << "\e[1;36m operator=( operator=( operator=( operator=( \e[0m" << std::endl;
 	if (this != &other)
 	{
 		_name = other._name;
 		for (int i = 0; i < 4; i++)
 		{
 			if (other._items[i] != NULL)
-				_items[i] = other._items[i]->clone();
+				_items[i] = other._items[i]->clone(); // il faut delete, il ne faut pas l'ecrasee !!!
 			else
 				_items[i] = NULL;
 		}

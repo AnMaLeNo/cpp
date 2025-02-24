@@ -6,7 +6,7 @@
 /*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 02:20:15 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/24 04:25:39 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/24 05:25:43 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ Cure::~Cure(void) {}
 
 AMateria* Cure::clone() const
 {
-	return (new Cure());
+	AMateria* cure = new Cure();
+	return (cure);
 }
 
 void Cure::use(ICharacter& target)
