@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 02:20:15 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/24 05:25:43 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/24 15:43:41 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 #include <iostream>
 
-Cure::Cure(void) : AMateria("Cure") {}
+Cure::Cure(void) : AMateria("cure") {}
 
 Cure::~Cure(void) {}
 

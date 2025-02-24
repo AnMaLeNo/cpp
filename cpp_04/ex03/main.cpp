@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 01:02:10 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/24 05:31:03 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/24 16:06:10 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "ICharacter.hpp"
 #include "Character.hpp"
 #include "Cure.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 #include <iostream>
 
 /* int main(void)
@@ -29,7 +31,8 @@
 	return (0);
 }
  */
-int main(void)
+
+/* int main(void)
 {
 	AMateria* ice = new Ice();
 	AMateria* cure = new Cure();
@@ -84,7 +87,11 @@ int main(void)
 
 	bob->use(1, *bob);
 	me->use(3, *bob);
+
 	*(Character *)bob = *(Character *)me;
+	*(Character *)bob = *(Character *)me;
+
+
 	bob->use(1, *bob);
 	me->use(3, *bob);
 
@@ -98,4 +105,59 @@ int main(void)
 	delete me;
 	delete bob;
 	return (0);
+} */
+
+// il faut test si ca free si je afecte = a un caractair il faut que ca free les encier iteme e l'interieur
+
+/* int main (void)
+{
+	IMateriaSource* src = new MateriaSource();
+	IMateriaSource* srcCp = new MateriaSource();
+	IMateriaSource* srcCpCp = new MateriaSource(*(MateriaSource *)srcCp);
+	//AMateria* tmp;
+
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	srcCp->learnMateria(new Cure());
+
+	delete src->createMateria("ice");
+	delete src->createMateria("cure");
+	delete src->createMateria("stick");
+
+	*(MateriaSource *)srcCp = *(MateriaSource *)src;
+	*(MateriaSource *)srcCp = *(MateriaSource *)src;
+	*(MateriaSource *)srcCpCp = *(MateriaSource *)srcCp;
+	*(MateriaSource *)srcCp = *(MateriaSource *)srcCpCp;
+
+
+	delete (srcCpCp);
+	delete (srcCp);
+	delete (src);
+	return (0);
+};
+ */
+
+ int main()
+ {
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+
+	delete bob;
+	delete me;
+	delete src;
+	return 0;
 }

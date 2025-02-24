@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 02:03:00 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/24 05:27:50 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/24 15:58:08 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ Character::Character(const std::string name) : _name(name)
 
 Character::Character(const Character* other)
 {
+	for (int i = 0; i < 4; i++)
+		_items[i] = NULL; // !!!!!! pas sur que ca marche !!!
+
 	_name = other->_name;
 	for (int i = 0; i < 4; i++)
 	{
@@ -34,7 +37,7 @@ Character::Character(const Character* other)
 
 Character::~Character(void)
 {
-	std::cout << "\e[1;34m il va faloir free les iteam et les itema qui on ete l'acher sur le sol !  \e[0m" << std::endl;
+	std::cout << "\e[1;31m il va faloir free les iteam et les itema qui on ete l'acher sur le sol !  \e[0m" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (_items[i] != NULL)
@@ -50,6 +53,8 @@ Character& Character::operator=(const Character& other)
 		_name = other._name;
 		for (int i = 0; i < 4; i++)
 		{
+			if(_items[i] != NULL)
+				delete _items[i];
 			if (other._items[i] != NULL)
 				_items[i] = other._items[i]->clone(); // il faut delete, il ne faut pas l'ecrasee !!!
 			else
