@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 00:07:05 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/24 00:52:52 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/24 17:09:33 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,19 @@
 #include "Brain.hpp"
 #include <iostream>
 
-/* int main(void)
-{
-	Animal animal;
-
-	return (0);
-} */
-
 int main(void)
+{
+	Animal *chien = new Dog();
+	Animal *chiencp = new Dog();
+
+	*(Dog *)chiencp = *(Dog *)chien;
+
+	delete chien;
+	delete chiencp;
+	return (0);
+}
+
+/* int main(void)
 {
 	Animal *animal[4];
 	Cat chat;
@@ -42,7 +47,7 @@ int main(void)
 	for (int i = 0; i < 4; i++)
 		delete animal[i];
 	return (0);
-}
+} */
 
 /* int main(void)
 {

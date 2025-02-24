@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 00:36:59 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/23 18:46:25 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/24 17:11:38 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ Dog& Dog::operator=(const Dog& other)
 	if (this != &other)
 	{
 		_type = other._type;
+		*_brain = *other._brain;
 	}
 	return (*this);
 }

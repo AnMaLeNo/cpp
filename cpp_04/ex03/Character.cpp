@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 02:03:00 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/24 15:58:08 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/24 16:07:26 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Character::Character(const Character* other)
 
 Character::~Character(void)
 {
-	std::cout << "\e[1;31m il va faloir free les iteam et les itema qui on ete l'acher sur le sol !  \e[0m" << std::endl;
+	//std::cout << "\e[1;31m il va faloir free les iteam et les itema qui on ete l'acher sur le sol !  \e[0m" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (_items[i] != NULL)

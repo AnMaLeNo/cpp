@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 01:02:10 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/24 16:06:10 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/24 17:18:02 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@
 }
  */
 
-/* int main(void)
+int main(void)
 {
 	AMateria* ice = new Ice();
 	AMateria* cure = new Cure();
 	ICharacter* me = new Character("me");
 	ICharacter* bob = new Character("bob");
+	ICharacter* bobcp = new Character(*(Character *)bob);
 
 	std::cout << "==========test_equip==========" << std::endl;
 	me->equip(ice);
@@ -80,7 +81,7 @@
 	me->unequip(1);
 	me->unequip(2);
 	me->unequip(3);
-	me->equip(ice);
+	me->equip(new Ice());
 	me->equip(ice);
 	me->equip(ice);
 	me->equip(ice);
@@ -96,7 +97,7 @@
 	me->use(3, *bob);
 
 	std::cout << "==========test_leak==========" << std::endl;
-	me->unequip(0);
+	//me->unequip(0);
 	me->unequip(2);
 	me->unequip(3);
 
@@ -104,10 +105,12 @@
 	delete cure;
 	delete me;
 	delete bob;
+	delete bobcp;
 	return (0);
-} */
+}
 
 // il faut test si ca free si je afecte = a un caractair il faut que ca free les encier iteme e l'interieur
+// !!!!!!!!!!!!!!!!!! test = avec materia !!!!!!!!!!!!!!!!!!!!!!
 
 /* int main (void)
 {
@@ -120,6 +123,12 @@
 	src->learnMateria(new Cure());
 
 	srcCp->learnMateria(new Cure());
+	srcCp->learnMateria(new Cure());
+	srcCp->learnMateria(new Cure());
+	srcCp->learnMateria(new Cure());
+	AMateria *test = new Cure();
+	srcCp->learnMateria(test);//fail
+	delete test;
 
 	delete src->createMateria("ice");
 	delete src->createMateria("cure");
@@ -135,10 +144,10 @@
 	delete (srcCp);
 	delete (src);
 	return (0);
-};
- */
+}; */
 
- int main()
+
+/*  int main()
  {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
@@ -160,4 +169,4 @@
 	delete me;
 	delete src;
 	return 0;
-}
+} */

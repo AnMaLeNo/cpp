@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 02:20:15 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/24 15:43:41 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/24 17:23:16 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,12 @@ AMateria* Cure::clone() const
 void Cure::use(ICharacter& target)
 {
 	std::cout << "\e[1;34m * heals " << target.getName() << " s wounds * \e[0m" << std::endl; // "’" !!!!!!
+}
+
+Cure::Cure(const Cure& other) : AMateria(other.getType()) {}
+
+Cure& Cure::operator=(const Cure& other)
+{
+	(void)other;
+	return (*this);
 }

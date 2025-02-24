@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 00:37:29 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/23 18:43:51 by amonot           ###   ########.fr       */
+/*   Updated: 2025/02/24 17:14:10 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ Cat& Cat::operator=(const Cat& other)
 	if (this != &other)
 	{
 		_type = other._type;
+		*_brain = *other._brain;
 	}
 	return (*this);
 }
