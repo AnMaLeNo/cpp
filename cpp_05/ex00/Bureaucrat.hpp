@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:14:40 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/27 18:35:45 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/01 16:04:19 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,7 @@
 
 #include <string>
 #include <exception>
-
-class GradeTooHighException : public std::exception {
-	
-	private:
-		std::string _message;
-
-	public:
-		GradeTooHighException(std::string message) : _message(message) {}
-		~GradeTooHighException(void) throw() {}
-
-		const char* what() const throw()
-		{
-			return _message.c_str();
-		}
-};
-
-class radeTooLowException : public std::exception {
-	
-	private:
-		std::string _message;
-
-	public:
-		radeTooLowException(std::string message) : _message(message) {}
-		~radeTooLowException(void) throw() {}
-
-		const char* what() const throw()
-		{
-			return _message.c_str();
-		}
-};
+#include <iostream>
 
 class Bureaucrat {
 
@@ -58,4 +29,40 @@ class Bureaucrat {
 		~Bureaucrat(void);
 
 		Bureaucrat& operator=(const Bureaucrat& other);
+
+		std::string getName(void) const;
+		int	getGrade(void) const;
+		void increment(void);
+		void decrement(void);
+
+	class GradeTooHighException : public std::exception {
+	
+		private:
+			std::string _message;
+	
+		public:
+			GradeTooHighException(void) : _message("Grade too high") {}
+			~GradeTooHighException(void) throw() {}
+	
+			const char* what() const throw()
+			{
+				return _message.c_str();
+			}
+	};
+
+	class GradeTooLowException : public std::exception {
+		
+	
+		private:
+			std::string _message;
+	
+		public:
+			GradeTooLowException(void) : _message("Grade too low") {}
+			~GradeTooLowException(void) throw() {}
+	
+			const char* what() const throw()
+			{
+				return _message.c_str();
+			}
+	};
 };

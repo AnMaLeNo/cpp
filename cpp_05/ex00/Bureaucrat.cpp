@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:14:43 by amonot            #+#    #+#             */
-/*   Updated: 2025/02/27 18:36:03 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/01 16:04:01 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 {
 	_name = name;
 	if (grade < 1)
-		throw radeTooLowException("Grade too low");
+		throw GradeTooHighException();
 	if (grade > 150)
-		throw GradeTooHighException("Grade too high");
+		throw GradeTooLowException();
 	_grade = grade;
 }
 
@@ -37,4 +37,28 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	_name = other._name;
 	_grade = other._grade;
 	return (*this);
+}
+
+std::string Bureaucrat::getName(void) const
+{
+	return (_name);
+}
+
+int Bureaucrat::getGrade(void) const
+{
+	return (_grade);
+}
+
+void Bureaucrat::increment(void)
+{
+	if (_grade - 1 < 1)
+		throw GradeTooHighException();
+	_grade--;
+}
+
+void Bureaucrat::decrement(void)
+{
+	if (_grade + 1 > 150)
+		throw GradeTooLowException();
+	_grade++;
 }
