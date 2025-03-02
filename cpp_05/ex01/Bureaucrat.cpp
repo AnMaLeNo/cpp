@@ -6,16 +6,21 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:14:43 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/02 14:33:15 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/02 20:34:22 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include <iostream>
 
-Bureaucrat::Bureaucrat(void) : _name("bureaucrat"), _grade(150) {}
+Bureaucrat::Bureaucrat(void) :
+	_name("bureaucrat"),
+	_grade(150)
+{}
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
 {
+	std::cout << "\e[1;34m constructor grade : \e[0m" << grade << std::endl;
 	_name = name;
 	if (grade < 1)
 		throw GradeTooHighException();
@@ -64,4 +69,25 @@ void Bureaucrat::decrement(void)
 	if (_grade + 1 > 150)
 		throw GradeTooLowException();
 	_grade++;
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cout << _name << " couldn’t sign " << form.getName()
+			<< " because " << e.what() << std::endl;
+		return ;
+	}
+	std::cout << _name << " signed " << form.getName() << std::endl;
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
+{
+	os << b.getName() << ", bureaucrat grade " << b.getGrade();
+	return (os);
 }
