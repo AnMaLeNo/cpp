@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:38:08 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/04 15:16:59 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/05 16:57:22 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,12 @@ AForm::AForm(std::string name, int gradeSign, int gradeExec) :
 		throw GradeTooLowException();
 }
 
-AForm::AForm(std::string name, std::string fileName, int gradeSign, int gradeExec) :
-	_name(name),
-	_signed(0),
-	_gradeSign(gradeSign),
-	_gradeExec(gradeExec)
-{
-	if (gradeSign < 1 || gradeExec < 1)
-		throw GradeTooHighException();
-	if (gradeSign > 150 || gradeExec > 150)
-		throw GradeTooLowException();
-	
-	
-}
-
 AForm::AForm(const AForm &other) : 
 	_name(other._name),
 	_signed(other._signed),
 	_gradeSign(other._gradeSign),
 	_gradeExec(other._gradeExec)
 {}
-
 
 AForm::~AForm(void) {}
 
