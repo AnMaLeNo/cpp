@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 15:10:50 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/06 17:21:42 by amonot           ###   ########.fr       */
+/*   Created: 2025/03/06 18:17:41 by amonot            #+#    #+#             */
+/*   Updated: 2025/03/06 19:13:29 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <string>
 #include "AForm.hpp"
+#include <string>
 
-class ShrubberyCreationForm : public AForm {
-
-	private:
-		std::string _target;
+class PresidentialPardonForm : public AForm {
 
 	public:
-	ShrubberyCreationForm(void);
-	ShrubberyCreationForm(const std::string &target);
-	ShrubberyCreationForm(const ShrubberyCreationForm &other);
-	~ShrubberyCreationForm(void);
+		PresidentialPardonForm(void);
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(const PresidentialPardonForm& other);
+		~PresidentialPardonForm(void);
 
-	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
+		PresidentialPardonForm& operator=(const PresidentialPardonForm* other);
 
-	void execute(Bureaucrat const & executor) const;
-
+		void execute(Bureaucrat const & executor) const;
 };

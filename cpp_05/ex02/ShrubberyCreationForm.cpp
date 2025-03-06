@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:10:31 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/05 16:56:46 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/06 17:05:26 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,18 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 		_target = other._target; // check _signed
 	}
 	return (*this);
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+	if (this->getSigned() == 0)
+		throw NotSignedException();
+	if (this->getGradeExec() < executor.getGrade())
+		throw GradeTooLowException();
+	std::ofstream file;
+
+	file.exceptions(std::ofstream::failbit | std::ofstream::badbit);
+	file.open((_target + "_shrubbery").c_str());
+	file << "ASCII trees";
+	file.close();
 }

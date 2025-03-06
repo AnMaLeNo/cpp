@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:14:43 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/02 20:34:22 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/06 17:03:25 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Bureaucrat::Bureaucrat(void) :
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
 {
-	std::cout << "\e[1;34m constructor grade : \e[0m" << grade << std::endl;
 	_name = name;
 	if (grade < 1)
 		throw GradeTooHighException();

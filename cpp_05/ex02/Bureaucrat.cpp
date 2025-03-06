@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:14:43 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/03 17:13:24 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/06 17:07:04 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Bureaucrat::Bureaucrat(void) :
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
 {
-	std::cout << "\e[1;34m constructor grade : \e[0m" << grade << std::endl;
 	_name = name;
 	if (grade < 1)
 		throw GradeTooHighException();
@@ -84,6 +83,20 @@ void Bureaucrat::signForm(AForm &form)
 		return ;
 	}
 	std::cout << _name << " signed " << form.getName() << std::endl;
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "\e[0;33m" << _name <<  " couldn’t execute " << form.getName()
+			<< " because " << e.what() << "\e[0m" << std::endl;
+	}
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
