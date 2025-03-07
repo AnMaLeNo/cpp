@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:10:31 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/07 14:21:33 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/07 15:36:05 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) :
-	AForm("Shrubbery form", 145, 137),
+	AForm("shrubbery creation", 145, 137),
 	_target("default")
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) :
-	AForm("Shrubbery form", 145, 137),
+	AForm("shrubbery creation", 145, 137),
 	_target(target)
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) :
-	AForm("Shrubbery form", 145, 137),
+	AForm(other.getName(), 145, 137),
 	_target(other._target)
 {}
 

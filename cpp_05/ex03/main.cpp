@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:14:37 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/07 14:38:34 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/07 15:48:29 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 #include <exception>
 #include <iostream>
 
@@ -63,7 +64,7 @@
 	return (0);
 } */
 
-int main(void)
+/* int main(void)
 {
 	Bureaucrat lenny("Lenny", 25);
 	Bureaucrat antoine("Antoine", 5);
@@ -74,6 +75,23 @@ int main(void)
 	lenny.signForm(*shrubberyForm);
 	lenny.executeForm(*shrubberyForm);
 	antoine.executeForm(*shrubberyForm);
+
+	return (0);
+} */
+
+int main(void)
+{
+	Bureaucrat lenny("Lenny", 72);
+	Bureaucrat antoine("Antoine", 45);
+	Intern intern;
+	AForm* form;
+
+	form = intern.makeForm("robotomy request", "Bender");
+	lenny.executeForm(*form);
+	antoine.executeForm(*form);
+	lenny.signForm(*form);
+	lenny.executeForm(*form);
+	antoine.executeForm(*form);
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 17:15:56 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/07 14:31:37 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/07 15:35:39 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 #include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm(void) :
-	AForm("Robotomy form", 72, 45),
+	AForm("robotomy request", 72, 45),
 	_target("default")
 {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) :
-	AForm("Robotomy form", 72, 45),
+	AForm("robotomy request", 72, 45),
 	_target(target)
 {}
 

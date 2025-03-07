@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 18:17:35 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/07 14:39:41 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/07 15:35:31 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include <iostream>
 
 PresidentialPardonForm::PresidentialPardonForm(void) :
-	AForm("Presidential form", 25, 5),
+	AForm("presidential pardon", 25, 5),
 	_target("default")
 {}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) :
-	AForm("Presidential form", 25, 5),
+	AForm("presidential pardon", 25, 5),
 	_target(target)
 {}
 
