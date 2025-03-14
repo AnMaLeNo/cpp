@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:14:37 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/02 20:35:54 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/13 14:34:37 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(void)
 		std::cout << "Bureaucrat::GradeTooLowException " <<  e.what() << std::endl;
 	}
 
-	Form f;
+	Form f("42form", 42, 1);
 
 	std::cout << f << std::endl;
 	b.signForm(f);

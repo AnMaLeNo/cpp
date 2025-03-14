@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:14:37 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/01 16:08:28 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/13 14:16:03 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,15 @@ int main(void)
 		std::cout << b << std::endl;
 		b.increment();
 
-		Bureaucrat c("antoine", 149);
+		Bureaucrat c("antoine", 1490);
 		c.decrement();
 		c.decrement();
 	}
-	catch (Bureaucrat::GradeTooHighException &e)
+	catch (std::exception &e)
+	{
+		std::cout << "std::exception &e " << e.what() << std::endl;
+	}
+/* 	catch (Bureaucrat::GradeTooHighException &e)
 	{
 		std::cout << "Bureaucrat::GradeTooHighException " <<  e.what() << std::endl;
 	}
@@ -42,7 +46,7 @@ int main(void)
 	{
 		std::cout << "Bureaucrat::GradeTooLowException " <<  e.what() << std::endl;
 	}
-
+ */
 
 	return (0);
 }

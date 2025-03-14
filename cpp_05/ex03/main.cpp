@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:14:37 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/07 15:48:29 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/14 16:21:49 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,15 @@ int main(void)
 	Intern intern;
 	AForm* form;
 
-	form = intern.makeForm("robotomy request", "Bender");
-	lenny.executeForm(*form);
-	antoine.executeForm(*form);
-	lenny.signForm(*form);
-	lenny.executeForm(*form);
-	antoine.executeForm(*form);
+	form = intern.makeForm("shrubbery creation", "Bender");
+	if (form != NULL)
+	{
+		lenny.executeForm(*form);
+		antoine.executeForm(*form);
+		lenny.signForm(*form);
+		lenny.executeForm(*form);
+		antoine.executeForm(*form);
+	}
 
 	return (0);
 }
