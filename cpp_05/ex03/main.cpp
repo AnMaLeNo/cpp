@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 15:14:37 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/14 16:21:49 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/15 14:33:29 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int main(void)
 	Intern intern;
 	AForm* form;
 
-	form = intern.makeForm("shrubbery creation", "Bender");
+	form = intern.makeForm("presidential pardon", "Bender");
 	if (form != NULL)
 	{
 		lenny.executeForm(*form);
