@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:45:40 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/19 18:44:23 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/22 17:55:01 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <string>
 #include <stdlib.h>
 #include <math.h>
+#include <iomanip>
 
 ScalarConverter::ScalarConverter(void)
 {}
@@ -72,21 +73,6 @@ char strType(std::string str)
 		return ('i');
 }
 
-/* char toChar(int i)
-{
-
-}
-
-char toChar(float i)
-{
-
-}
-
-char toChar(double d)
-{
-
-} */
-
 void convertChar(char c)
 {
 	int		i = 0;
@@ -117,8 +103,8 @@ void convertInt(int i)
 		std::cout << "char: " << static_cast<char>(i) << std::endl;
 
 	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(i) << std::endl;
+	std::cout << "float: " << std::fixed <<  std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
+	std::cout << "double: " << std::fixed <<  std::setprecision(1) << static_cast<double>(i) << std::endl;
 }
 
 void convertFloat(float f)
@@ -130,13 +116,13 @@ void convertFloat(float f)
 	else
 		std::cout << "char: " << static_cast<char>(f) << std::endl;
 
-	if (isnan(f) || isinf(f))
+	if (isnan(f) || isinf(f) || f > 2147483520)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(f) << std::endl;
 
-	std::cout << "float: " << f <<  "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(f) << std::endl;
+	std::cout << "float: " << std::fixed <<  std::setprecision(1) << f <<  "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
 }
 
 void convertDouble(double d)
@@ -148,40 +134,58 @@ void convertDouble(double d)
 	else
 		std::cout << "char: " << static_cast<char>(d) << std::endl;
 
-	if (isnan(d) || isinf(d))
+	if (isnan(d) || isinf(d) || d >= 2147483648 || d < -2147483648)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(d) << std::endl;
 
-	std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(d) << std::endl;
+	std::cout << "float: " << std::fixed <<  std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
+	std::cout << "double: " << std::fixed <<  std::setprecision(1) << static_cast<double>(d) << std::endl;
 }
 
 void ScalarConverter::convert(std::string str)
 {
 	char	type;
+	char	*ptr;
 
 	type = strType(str);
 	std::cout << "type: " << type << std::endl;
 	if (type == 'c')
 	{
+		if (str[1] != '\0')
+			throw InvalidArgumentException();
 		convertChar(str[0]);
 	}
 	else if (type == 'i')
 	{
-		long int i = std::strtol(str.c_str(), NULL, 10);
+		long int i = std::strtol(str.c_str(), &ptr, 10);
 
 		if (i < -2147483648 || i > 2147483647)
-			i = 0;
-		convertInt(static_cast<int>(i));
+		{
+			//throw OverflowArgumentException();
+			std::cout << "int: impossible"
+				<< "\nint: impossible"
+				<< "\nfloat: impossible"
+				<< "\ndouble: impossible" << std::endl;
+		}
+		else if (ptr[0] != '\0')
+			throw InvalidArgumentException();
+		else
+			convertInt(static_cast<int>(i));
 	}
 	else if (type == 'f')
 	{
-		convertFloat(std::strtof(str.c_str(), NULL));
+		float f = std::strtof(str.c_str(), &ptr);
+		if (ptr[1] != '\0')
+			throw InvalidArgumentException();
+		convertFloat(f);
 	}
 	else if (type == 'd')
 	{
-		convertDouble(std::strtod(str.c_str(), NULL));
+		double d = std::strtod(str.c_str(), &ptr);
+		if (ptr[0] != '\0')
+			throw InvalidArgumentException();
+		convertDouble(d);
 	}
 }
 
