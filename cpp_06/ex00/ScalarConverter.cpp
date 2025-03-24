@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:45:40 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/22 17:55:01 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/24 16:47:07 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ void convertChar(char c)
 	else
 		std::cout << "char: " << static_cast<char>(i) << std::endl;
 	std::cout << "int: " << i
-				<< "\nfloat: " << f
-				<< "\ndouble: " << d << std::endl;
+				<< "\nfloat: " << std::fixed <<  std::setprecision(1) << f << "f"
+				<< "\ndouble: " << std::fixed <<  std::setprecision(1) << d << std::endl;
 }
 
 void convertInt(int i)
@@ -116,7 +116,7 @@ void convertFloat(float f)
 	else
 		std::cout << "char: " << static_cast<char>(f) << std::endl;
 
-	if (isnan(f) || isinf(f) || f > 2147483520)
+	if (isnan(f) || isinf(f) || f > 2147483520 || f < -2147483648)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(f) << std::endl;
@@ -149,7 +149,7 @@ void ScalarConverter::convert(std::string str)
 	char	*ptr;
 
 	type = strType(str);
-	std::cout << "type: " << type << std::endl;
+	//std::cout << "type: " << type << std::endl;
 	if (type == 'c')
 	{
 		if (str[1] != '\0')
@@ -162,7 +162,8 @@ void ScalarConverter::convert(std::string str)
 
 		if (i < -2147483648 || i > 2147483647)
 		{
-			//throw OverflowArgumentException();
+			if (ptr[0] != '\0')
+				throw InvalidArgumentException();
 			std::cout << "int: impossible"
 				<< "\nint: impossible"
 				<< "\nfloat: impossible"

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Data.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/16 16:45:38 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/16 17:09:37 by amonot           ###   ########.fr       */
+/*   Created: 2025/03/24 17:09:47 by amonot            #+#    #+#             */
+/*   Updated: 2025/03/24 17:16:57 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Data.hpp"
 
-#include <string>
+Data::Data(void) :
+	i(42)
+{}
 
-class ScalarConverter {
+Data::Data(const Data* other) :
+	i(other->i)
+{}
 
-	public:
-		ScalarConverter(void);
-		ScalarConverter(const ScalarConverter &other);
-		~ScalarConverter(void);
+Data::~Data(void)
+{}
 
-		ScalarConverter& operator=(const ScalarConverter &other);
-
-		void convert(std::string literal);
-};
+Data &Data::operator=(const Data& other)
+{
+	if (this != &other)
+	{
+		i = other.i;
+	}
+	return (*this);
+}

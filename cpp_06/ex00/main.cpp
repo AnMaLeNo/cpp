@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:45:17 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/19 13:41:22 by amonot           ###   ########.fr       */
+/*   Updated: 2025/03/24 16:29:25 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,21 @@
 
 int main(int argc, char *argv[])
 {
-	ScalarConverter test;
-
-	if (argc == 2)
-		test.convert(argv[1]);
+	try
+	{
+		if (argc == 2)
+			ScalarConverter::convert(argv[1]);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	return (0);
 } 
 
 // int main(void)
 // {
-// 	std::istringstream ss("42.01f");
+// 	std::istringstream ss("42.01f")	;
 // 	float nbr;
 // 	int n;
 // 	std::string str;

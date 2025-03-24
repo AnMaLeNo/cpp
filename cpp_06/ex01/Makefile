@@ -1,5 +1,6 @@
 SRCS =	main.cpp \
-		ScalarConverter.cpp 
+		Serializer.cpp \
+		Data.cpp
 
 SRCS_OBJ = $(SRCS:.cpp=.o)
 
