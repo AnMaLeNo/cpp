@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:45:17 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/24 16:29:25 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/03 14:31:54 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,41 +29,3 @@ int main(int argc, char *argv[])
 	return (0);
 } 
 
-// int main(void)
-// {
-// 	std::istringstream ss("42.01f")	;
-// 	float nbr;
-// 	int n;
-// 	std::string str;
-
-// 	ss >> nbr;
-// 	ss >> str;
-// 	std::cout  << "nbr: " << nbr << std::endl;
-// 	std::cout << "ss: " << str << std::endl;
-// }
-
-/* int main ()
-{
-  char str[] = "nanf 365.24";
-  char* pEnd;
-  float f1;
-  double d1;
-  int i1;
-
-  f1 = strtof(str, &pEnd);
-  std::cout << "float: " << f1 << " pEnd: $" << pEnd << "$" << std::endl;
-  d1 = strtod(str, &pEnd);
-  std::cout << "double: " << d1 << " pEnd: $" << pEnd << "$" << std::endl;
-  i1 = strtod(str, &pEnd);
-  std::cout << "int: " << i1 << " pEnd: $" << pEnd << "$" << std::endl;
-  return 0;
-} */
-
-/* int main(void)
-{
-	std::string str = "dnan test";
-
-	std::cout << str.find("nan") << std::endl;
-	std::cout << std::string::npos << std::endl;
-	return (0);
-} */

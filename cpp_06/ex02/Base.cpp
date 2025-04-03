@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:51:58 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/24 18:32:40 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/03 14:52:54 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void Base::identify(Base& p)
 		} catch (...) {
 			try {
 				(void)dynamic_cast<C &>(p);
-				std::cout << "object of type B" << std::endl;
+				std::cout << "object of type C" << std::endl;
 			} catch (...) {
 				std::cout << "object of type unknown" << std::endl;
 			}
