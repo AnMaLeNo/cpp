@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:47:46 by amonot            #+#    #+#             */
-/*   Updated: 2025/03/31 16:11:55 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/03 17:23:20 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ template< typename T >
 void increment(T &a)
 {
 	(void)a;
-	//a++;
+	a++;
 }
 
 /* int main(void)
