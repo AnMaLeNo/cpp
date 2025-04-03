@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:29:49 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/02 17:31:50 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/03 14:14:47 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@
 int main(void)
 {
 	Array<int> *a = new Array<int>(3);
-	Array<int> *b = new Array<int>(3);
+	Array<int> *b = new Array<int>;
 
 	(*a)[0] = 1;
 	(*a)[1] = 2;
 	(*a)[2] = 3;
 	
 	std::cout << (*a)[1] << std::endl;
-	std::cout << (*b)[1] << std::endl;
 	*b = *a;
 	std::cout << std::endl;
 	std::cout << (*a)[1] << std::endl;
@@ -54,23 +53,23 @@ int main(void)
 	return (0);
 } */
 
+/* class MyClass {
+	public:
+		MyClass() : value(42) {}
+		int value;
+}; */
 
-/* class test {
-	public :
-		test(void) {}
-		~test(void) {}
-
-		void operator=(const test &other) {
-			(void)other;
-			std::cout << "operator = de test" << std::endl;
-		}
-};
-
-int main(void)
+/* int main(void)
 {
-	test a;
-	test b;
+	int * a = new int();
+	Array<std::string> *b = new Array<std::string>(3);
+	Array<MyClass> *c = new Array<MyClass>(3);
 
-	a = b;
-	return (0);
-} */
+	*b = 42;
+	std::cout << *a << std::endl;
+	std::cout << (*b)[0] << std::endl;
+	std::cout << (*c)[0].value << std::endl;
+	delete a;
+	delete b;
+}
+ */

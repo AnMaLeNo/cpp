@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:30:27 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/02 17:22:26 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/03 14:15:04 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ T& Array<T>::operator[](unsigned int i)
 template< typename T >
 Array<T>& Array<T>::operator=(const Array<T> &other)
 {
-	std::cout << "operator = of Array" << std::endl;
+	//std::cout << "operator = of Array" << std::endl;
 	if (this != &other)
 	{
 		delete[] _tab;
