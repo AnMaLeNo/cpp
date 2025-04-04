@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:48:27 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/04 03:29:40 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/04 16:15:26 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,29 @@
 #include <iostream>
 #include <vector>
 
-// test avec size 10 000
-
 int main(void)
 {
 	Span 				a(1000005);
 	std::vector<int>	vector(1000000, 100);
-
+	Span				c;
+	
+	c = Span(1);
+	c.addNumber(1);
+	//c.addNumber(1);
 	a.addNumber(1);
 	a.addNumber(3);
+	Span				b(a);
 	a.addNumber(20);
 	a.addNumber(25);
 	a.addNumber(0);
 	std::cout << "shortest Span: " << a.shortestSpan() << std::endl;
 	std::cout << "longest Span: " << a.longestSpan() << std::endl;
-	a.addNumbers(vector.begin(), vector.end());
+	a.addNumbers(vector.begin(), vector.end());;
 	std::cout << "shortest Span: " << a.shortestSpan() << std::endl;
 	std::cout << "longest Span: " << a.longestSpan() << std::endl;
+	//b.longestSpan();
+	a = Span();
+	std::cout << b.shortestSpan() << std::endl;
 	return(0);
 }
 

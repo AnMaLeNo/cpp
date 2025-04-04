@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:48:50 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/04 03:26:59 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/04 16:57:11 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,27 @@ Span::Span(void) : _n(0)
 Span::Span(const unsigned int n) : _n(n)
 {}
 
+Span::Span(const Span &other)
+{
+	if (this != & other)
+	{
+		_v = other._v;
+		_n = other._n;
+	}
+}
+
 Span::~Span(void)
 {}
+
+Span &Span::operator=(const Span &other)
+{
+	if (this != &other)
+	{
+		_v = other._v;
+		_n = other._n;
+	}
+	return (*this);
+}
 
 void Span::addNumber(int nbr)
 {
@@ -32,7 +51,7 @@ void Span::addNumber(int nbr)
 
 void Span::addNumbers(std::vector<int>::const_iterator it, std::vector<int>::const_iterator eit)
 {
-	if (_v.size() + eit - it > _n)
+	if (_v.size() + eit - it > _n) // !!!! last - first ?
 		throw NotEnoughSpaceException();
 	while (it != eit)
 	{
@@ -62,3 +81,16 @@ int Span::longestSpan(void)
 	std::sort(_v.begin(), _v.end());
 	return (_v[_v.size() - 1] - _v[0]);
 }
+
+/* template < typename T >
+void Span::addN(T first, T last)
+{
+	if (_v.size() + last - first > _n) // !!!! last - first ?
+	throw NotEnoughSpaceException();
+	while (first != last)
+	{
+		_v.push_back(*first);
+		first++;
+	}
+	//_v.insert(_v.end(), first, last);
+} */
