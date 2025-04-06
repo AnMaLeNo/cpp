@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:48:27 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/04 16:15:26 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/06 03:09:49 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 int main(void)
 {
 	Span 				a(1000005);
-	std::vector<int>	vector(1000000, 100);
+	std::vector<int>	vector(1000000-3, 100);
+	int					tab[] = {200, 200, 200};
 	Span				c;
 	
 	c = Span(1);
@@ -31,14 +32,36 @@ int main(void)
 	a.addNumber(0);
 	std::cout << "shortest Span: " << a.shortestSpan() << std::endl;
 	std::cout << "longest Span: " << a.longestSpan() << std::endl;
-	a.addNumbers(vector.begin(), vector.end());;
+	a.addNumbers(vector.begin(), vector.end());
+	a.addNumbers(tab, tab+3);
 	std::cout << "shortest Span: " << a.shortestSpan() << std::endl;
 	std::cout << "longest Span: " << a.longestSpan() << std::endl;
-	//b.longestSpan();
+	b.longestSpan();
 	a = Span();
 	std::cout << b.shortestSpan() << std::endl;
 	return(0);
 }
+
+/* int main(void)
+{
+	Span	*a = new Span(3);
+	Span	*b = new Span(4);
+
+	a->addNumber(42);
+	a->addNumber(42);
+	a->addNumber(42);
+	b->addNumber(21);
+	b->addNumber(21);
+	b->addNumber(21);
+	b->addNumber(0);
+	std::cout << b->longestSpan() << std::endl;
+	*b = *a;
+	std::cout << b->longestSpan() << std::endl;
+	
+	delete a;
+	delete b;
+	return(0);
+} */
 
 /* int main()
 {

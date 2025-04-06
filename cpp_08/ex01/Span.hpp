@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:48:54 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/04 16:29:17 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/06 03:01:42 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class Span {
 	
 		Span &operator=(const Span &other);
 		void addNumber(int nbr);
-		void addNumbers(std::vector<int>::const_iterator it, std::vector<int>::const_iterator eit);
+		template < typename T >
+		void addNumbers(T first, T last);
 		int shortestSpan(void);
 		int longestSpan(void);
 
@@ -46,3 +47,11 @@ class Span {
 	};
 
 };
+
+template < typename T >
+void Span::addNumbers(T it, T ite)
+{
+	if (_v.size() + ite - it > _n)
+		throw NotEnoughSpaceException();
+	_v.insert(_v.end(), it, ite);
+}
