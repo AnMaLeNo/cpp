@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 18:22:15 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/07 18:19:07 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/08 02:04:48 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,38 @@ class BitcoinExchange {
 		//BitcoinExchange &operator=(const BitcoinExchange &other);
 		//~BitcoinExchange(void);
 
-		float exchangeRate(std::string date);
-
+		void BtcValueByRate(std::string fileName);
+		
+		class UnreadableInFileException : public std::exception {
+			public:
+			const char *what() const throw() {
+				return ("Unable to read the in file");
+			}
+		};
+		
 		class UnreadableDatabaseException : public std::exception {
 			public:
-				const char *what() const throw() {
-					return ("Unable to read the database");
-				}
+			const char *what() const throw() {
+				return ("Unable to read the database");
+			}
 		};
-
+		
 		class NodatabaseException : public std::exception {
 			public:
-				const char *what() const throw() {
-					return ("No database");
-				}
+			const char *what() const throw() {
+				return ("No database");
+			}
 		};
-
+		
 		class NodataException : public std::exception {
 			public:
-				const char *what() const throw() {
-					return ("No data");
-				}
+			const char *what() const throw() {
+				return ("No data");
+			}
 		};
 		
 	private:
 		std::map<std::string, float> _data;
+		float exchangeRate(std::string date);
+		void printBtcValueByRate(const std::string &date, float btc);
 };
