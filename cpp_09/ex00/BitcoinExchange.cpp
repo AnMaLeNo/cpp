@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 18:22:18 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/08 14:29:39 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/08 17:22:13 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ BitcoinExchange::BitcoinExchange(std::string file)
 		_data[line.substr(0, pos)] = strtof(line.substr(pos + 1).c_str(), NULL);
 	}
 }
+
+BitcoinExchange::~BitcoinExchange(void)
+{}
 
 float BitcoinExchange::exchangeRate(std::string date) // verifier ci la data est valide
 {

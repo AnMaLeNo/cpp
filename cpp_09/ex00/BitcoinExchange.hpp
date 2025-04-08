@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 18:22:15 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/08 14:30:22 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/08 17:21:49 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ class BitcoinExchange {
 	
 	public:
 		BitcoinExchange(std::string file);
-		//BitcoinExchange(const BitcoinExchange &other);
-		//BitcoinExchange &operator=(const BitcoinExchange &other);
-		//~BitcoinExchange(void);
+		~BitcoinExchange(void);
 
 		void BtcValueByRate(std::string fileName);
 		
@@ -53,6 +51,9 @@ class BitcoinExchange {
 		};
 	
 	private:
+		BitcoinExchange(const BitcoinExchange &other);
+		BitcoinExchange &operator=(const BitcoinExchange &other);
+
 		std::map<std::string, float> _data;
 		
 		float	exchangeRate(std::string date);
