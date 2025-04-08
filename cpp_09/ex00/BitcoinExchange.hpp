@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 18:22:15 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/08 02:04:48 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/08 14:30:22 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,11 @@ class BitcoinExchange {
 				return ("No data");
 			}
 		};
-		
+	
 	private:
 		std::map<std::string, float> _data;
-		float exchangeRate(std::string date);
-		void printBtcValueByRate(const std::string &date, float btc);
+		
+		float	exchangeRate(std::string date);
+		void	printBtcValueByRate(const std::string &date, float btc);
+		bool	checkLine(std::string line);
 };

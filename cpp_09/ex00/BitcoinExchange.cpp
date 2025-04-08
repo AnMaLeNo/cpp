@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amonot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 18:22:18 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/08 02:16:06 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/08 14:29:39 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void BitcoinExchange::printBtcValueByRate(const std::string &date, float btc)
 		std::cout << date << " => " << btc << " = " << exchangeRate(date) * btc << std::endl;
 }
 
-bool checkLine(std::string line)
+bool BitcoinExchange::checkLine(std::string line)
 {
 	int i;
 
