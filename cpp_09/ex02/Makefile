@@ -1,4 +1,4 @@
-SRCS =	main.cpp \
+SRCS =	main.cpp
 
 SRCS_OBJ = $(SRCS:.cpp=.o)
 
