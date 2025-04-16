@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:24:30 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/14 22:14:28 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/16 15:12:15 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ void printVector(std::vector<int> tab)
 }
 
 
-
-
 void insert(std::vector<int> &tab, unsigned begin, unsigned end, int n)
 {
 	//std::cout << "begin: " << begin << "end: " << end << "  n: " << n << std::endl;
@@ -119,7 +117,7 @@ void sort(std::vector<int> &tab)
 	std::vector<int> maxCp(*max);
 	std::cout << "----------" << maxCp.size() << "----------" << std::endl;
 	max->insert(max->begin(), getPair(tab, max->at(0)));
-	while (t1 < maxCp.size())
+	while (t1 <= maxCp.size())
 	{
 		t2 = numStart(k);
 		for (unsigned int j = t2; j > t1; j--)
@@ -132,7 +130,7 @@ void sort(std::vector<int> &tab)
 				if (j > tab.size() / 2)
 				{
 					std::cout << "exception j: " << j << std::endl;
-					insert(*max, 0, max->size()-1, tab.back()); // back ou front ??
+					insert(*max, 0, max->size(), tab.back()); // back ou front ??
 				}
 				else
 					insert(*max, 0, search(*max, maxCp[j-1]), getPair(tab, maxCp[j-1]));
@@ -171,13 +169,13 @@ int main(void)
 	tab.push_back(1);
 	tab.push_back(13);
 
-	// tab.push_back(5);//
-	// tab.push_back(3);
 	// tab.push_back(1);//
+	// tab.push_back(3);
+	// tab.push_back(5);//
 	// tab.push_back(4);
 	// tab.push_back(2);//
-	//tab.push_back(6);
-	//tab.push_back(7);//
+	// tab.push_back(6);
+	// tab.push_back(7);//
 
 	sort(tab);
 /* 	std::cout << numStart(1) << std::endl;
