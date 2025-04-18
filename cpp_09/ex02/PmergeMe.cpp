@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:25:01 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/16 18:27:33 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/18 18:40:12 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,9 @@
 #include <iostream>
 #include <math.h>
 #include <exception>
+#include "PmergeMe.hpp"
 
-class NotFindException : public std::exception {
-	public:
-		const char *what() const throw() {
-			return ("error in merge-insert sort");
-		} 
-};
+//int global;
 
 std::vector<int> *maximum(std::vector<int> &tab)
 {
@@ -30,6 +26,7 @@ std::vector<int> *maximum(std::vector<int> &tab)
 
 	for (unsigned i = 0; i + 1 < tab.size(); i += 2)
 	{
+		//global++;
 		if (tab[i] > tab[i + 1])
 			max->push_back(tab[i]);
 		else
@@ -67,9 +64,15 @@ void insert(std::vector<int> &tab, unsigned begin, unsigned end, int n)
 	if (end == begin)
 		tab.insert(tab.begin() + begin, n);
 	else if (tab[(begin + end) / 2] > n)
+	{
+		//global++;
 		insert(tab, begin, (begin + end) / 2, n);
+	}
 	else
+	{
+		//global++;
 		insert(tab, (begin + end) / 2 + 1, end, n);
+	}
 }
 
 unsigned int numStart(int k)
@@ -95,6 +98,8 @@ void sortVector(std::vector<int> &tab)
 	unsigned int		t1;
 	unsigned int		t2;
 
+	if (tab.size() == 1)
+		return ;
 	max = maximum(tab);
 	if (max->size() != 1)
 		sortVector(*max);
@@ -191,6 +196,8 @@ void sortDeque(std::deque<int> &tab)
 	unsigned int		t1;
 	unsigned int		t2;
 
+	if (tab.size() == 1)
+		return ;
 	max = maximum2(tab);
 	if (max->size() != 1)
 		sortDeque(*max);

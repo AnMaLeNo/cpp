@@ -9,13 +9,14 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = PmergeMe
 
-all : ${NAME}
 
-.cpp.o:v
+.cpp.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o} 
 
 ${NAME} : ${SRCS_OBJ}
 	${CC} ${CFLAGS} -o ${NAME} ${SRCS_OBJ}
+
+all : ${NAME}
 
 clean :
 	rm -f ${SRCS_OBJ}

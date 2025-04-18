@@ -6,7 +6,7 @@
 /*   By: amonot <amonot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:24:30 by amonot            #+#    #+#             */
-/*   Updated: 2025/04/16 19:13:49 by amonot           ###   ########.fr       */
+/*   Updated: 2025/04/18 18:39:43 by amonot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,10 @@
 bool check_arg(unsigned argc, char *argv[])
 {
 	std::vector<int>	nbr;
+	char				*tmp;
 	for (unsigned int i = 1; i < argc; i++)
 	{
-		if (strtod(argv[i], NULL) > 2147483647 || strtod(argv[i], NULL) < 0)
+		if ((!isdigit(argv[i][0]) && argv[i][0] != '+') || strtod(argv[i], NULL) > 2147483647 || strtod(argv[i], &tmp) < 0 || tmp[0] != '\0')
 			return (false);
 		nbr.push_back(strtod(argv[i], NULL));
 	}
@@ -121,9 +122,8 @@ int main(int argc, char *argv[])
 	double				vt;
 	double				dt;
 
-	if (argc == 1)
-		return (1);
-	if (check_arg(argc, argv) == false)
+
+	if (argc == 1 || check_arg(argc, argv) == false)
 	{
 		std::cout << "the program take positive integer sequence without duplicate" << std::endl;
 		return (1);
@@ -138,10 +138,10 @@ int main(int argc, char *argv[])
 	std::cout << std::endl;
 	t = clock();
 	sortVector(vectorInt);
-	vt = static_cast<double>(t)/CLOCKS_PER_SEC * 1000;
+	vt = static_cast<double>(clock() - t)/CLOCKS_PER_SEC * 1000;
 	t = clock();
 	sortDeque(dequeInt);
-	dt = static_cast<double>(t)/CLOCKS_PER_SEC * 1000;
+	dt = static_cast<double>(clock() - t)/CLOCKS_PER_SEC * 1000;
 
 	std::cout << "After:\t";
 	for (unsigned int i = 0; i < vectorInt.size(); i++)
@@ -155,4 +155,5 @@ int main(int argc, char *argv[])
 	std::cout << "Time to process a range of " << dequeInt.size()
 		<< " elements with std::deque : " << dt << "ms" << std::endl;
 	
+	//std::cout << "global: " << global << std::endl;
 }
